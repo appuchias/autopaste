@@ -11,14 +11,15 @@ except FileNotFoundError:
 fn = input("Type the filename:\n> ")
 
 if fn[:-4] != ".txt":
-    fn =+ ".txt"
+    fn += ".txt"
 
 path = os.path.join(fp, fn)
 
 with open(path, "a") as a:
     while True:
         if keyboard.read_key() == "esc":
-            raise SystemExit
+            raise Exception("Program finished")
+            
 
         copy = pyperclip.waitForNewPaste()
         a.write(copy + "\n")
